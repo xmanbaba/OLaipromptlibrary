@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Telecom Liberia - AI Prompt Examples</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .strategy-house-logo {
+            width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .strategy-house-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            color: #FF6600;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header-content p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .orange-logo-container {
+            width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .orange-logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #FF6600;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FF6600;
+        }
+
+        /* Department Grid */
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .department-card {
+            background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+            text-align: center;
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+        }
+
+        .department-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .department-card p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Modal/Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+        }
+
+        .close {
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .scenario-section {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #FF6600;
+        }
+
+        .scenario-title {
+            color: #FF6600;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .prompt-example {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .prompt-type {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .prompt-type.lazy {
+            background: #ff4444;
+            color: white;
+        }
+
+        .prompt-type.few-shot {
+            background: #ffaa00;
+            color: white;
+        }
+
+        .prompt-type.craft {
+            background: #00cc66;
+            color: white;
+        }
+
+        .prompt-text {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #FF6600;
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        /* Guidelines Section */
+        .guidelines {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .guideline-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #FF6600;
+        }
+
+        .guideline-box h3 {
+            color: #FF6600;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .guideline-box p, .guideline-box ul {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .guideline-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .guideline-box li {
+            margin-bottom: 8px;
+        }
+
+        .craft-formula {
+            background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .craft-formula h3 {
+            margin-bottom: 15px;
+        }
+
+        .craft-item {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .craft-item strong {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                text-align: center;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .strategy-house-logo,
+            .orange-logo-container {
+                justify-content: center;
+            }
+
+            .header-content {
+                padding: 0;
+            }
+
+            .header-content h1 {
+                font-size: 22px;
+            }
+
+            .department-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .main-content,
+            .guidelines {
+                padding: 25px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #FF6600;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #FF8533;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="strategy-house-logo">
+                <img src="https://images.groovetech.io/omFPWbC7va1G9-ZXYyeVhqk5iE9zXYsUQgXRP4SUXSo/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmNWQ1NDkzODA2NmVmMDA2OTQwMmRlMy8xNzYzMjI1OTE1X1N0cmF0ZWd5SG91c2VMb2dvLmpwZw.webp" alt="Strategy House Logo">
+            </div>
+            <div class="header-content">
+                <h1>AI Prompt Examples Library</h1>
+                <p>Orange Telecom Liberia - Empowering Leaders with AI</p>
+            </div>
+            <div class="orange-logo-container">
+                <img src="https://images.groovetech.io/4_o_OdYYdW0sxTXIcQdDZxk_3-IjdZa6edWxA1nO8uM/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmNWQ1NDkzODA2NmVmMDA2OTQwMmRlMy8xNzYzMjI1ODkxX0NvcnJlY3RPcmFuZ2VMb2dvLmpwZw.webp" alt="Orange Telecom Logo">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2 class="section-title">Select Your Department</h2>
+            <p style="color: #666; margin-bottom: 25px; line-height: 1.6;">
+                Choose your department below to view tailored AI prompt examples. Each department includes real-world scenarios with three types of prompts: Simple (what to avoid), Few-Shot (with examples), and CRAFT (best practice).
+            </p>
+
+            <div class="department-grid" id="departmentGrid">
+                <!-- Departments will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Guidelines Section (Always Visible) -->
+        <div class="guidelines">
+            <h2 class="section-title">How to Use These Prompt Examples</h2>
+
+            <div class="guideline-box">
+                <h3>📋 Step 1: Identify Your Scenario</h3>
+                <p>Find the department and scenario that most closely matches your current situation or challenge.</p>
+            </div>
+
+            <div class="guideline-box">
+                <h3>✏️ Step 2: Customize the Context</h3>
+                <p>Replace generic details with your specific information:</p>
+                <ul>
+                    <li>Your actual role/title</li>
+                    <li>Specific numbers, dates, and locations</li>
+                    <li>Your actual objectives and constraints</li>
+                    <li>Real data from your situation</li>
+                </ul>
+            </div>
+
+            <div class="guideline-box">
+                <h3>📊 Step 3: Adjust the Format</h3>
+                <p>Choose the output format that works best for how you'll use the results:</p>
+                <ul>
+                    <li><strong>Email</strong> - For communication</li>
+                    <li><strong>Table</strong> - For data and comparisons</li>
+                    <li><strong>Bullet Points</strong> - For quick reference</li>
+                    <li><strong>Report</strong> - For comprehensive analysis</li>
+                </ul>
+            </div>
+
+            <div class="guideline-box">
+                <h3>🎯 Step 4: Refine the Tone</h3>
+                <p>Match the tone to your actual audience:</p>
+                <ul>
+                    <li>More formal for board/executives</li>
+                    <li>Warmer for frontline staff</li>
+                    <li>Technical for specialist teams</li>
+                    <li>Encouraging for training materials</li>
+                </ul>
+            </div>
+
+            <div class="craft-formula">
+                <h3>🔧 Quick Reference: The CRAFT Framework</h3>
+                <div class="craft-item"><strong>C</strong> - Context: Who am I and what's my situation?</div>
+                <div class="craft-item"><strong>R</strong> - Role: What expert should AI become?</div>
+                <div class="craft-item"><strong>A</strong> - Action: What specific task do I need done?</div>
+                <div class="craft-item"><strong>F</strong> - Format: How should the output be structured?</div>
+                <div class="craft-item"><strong>T</strong> - Target & Tone: Who is the audience and what tone is appropriate?</div>
+            </div>
+
+            <div class="guideline-box" style="margin-top: 20px;">
+                <h3>💡 Tips for Success</h3>
+                <ul>
+                    <li><strong>Be Specific:</strong> Use actual numbers, dates, and locations</li>
+                    <li><strong>Include Constraints:</strong> Mention budget, timeline, regulations</li>
+                    <li><strong>Specify Format Clearly:</strong> Tell AI exactly how you want the output</li>
+                    <li><strong>Consider Your Audience:</strong> Match language to their knowledge level</li>
+                    <li><strong>Never Include:</strong> Confidential company data or sensitive information</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2025 Suleiman Shaibu
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="promptModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Department Examples</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Prompt examples will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Department data with scenarios and prompts
+        const departmentData = {
+            "Customer Service": {
+                icon: "👥",
+                description: "Complaint handling & resolution",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Managing High Customer Complaint Volume During Network Outage",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do I handle customer complaints?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "When we had a network outage last month, our best response was: 'We sincerely apologize and are working to restore service within 2 hours.' When customers complained about data loss, we said: 'We'll credit your account proportionally.' Now we have similar complaints about voice service interruption. Draft a response."
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Customer Service Manager at Orange Telecom Liberia (C). Act as an experienced Telecommunications Customer Relations Expert who has managed crisis communications in West Africa (R). Develop (A) a comprehensive response script for our call center agents to handle voice service interruption complaints during today's unexpected outage affecting 30,000 subscribers in Monrovia. Create a 3-part response template (F) that includes: 1) Empathy statement, 2) Clear explanation with estimated resolution time, 3) Compensation offer. The tone should be warm, apologetic, and reassuring for frustrated customers (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Improving First-Call Resolution Rates",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How can we improve customer service?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Last quarter, we improved resolution by training agents on: 1) Active listening techniques, 2) Using decision trees for common issues. This quarter, agents still struggle with mobile money transaction disputes. What training should we add?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Customer Service Team Lead responsible for performance metrics (C). Assume the role of a Call Center Training Specialist with expertise in mobile financial services (R). Analyze (A) the top 5 mobile money transaction issues that currently require escalation and design a training module that enables first-call resolution. Present your recommendations as a structured training outline (F) with: Issue Type, Root Cause, Agent Knowledge Gap, Training Solution, and Expected Impact. Keep the language simple and practical for agents with varied educational backgrounds (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Network Operations": {
+                icon: "📡",
+                description: "Infrastructure & optimization",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Optimizing Network Capacity During Peak Hours",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Tell me about network optimization."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "When we experienced congestion in Sinkor, we resolved it by: 1) Load balancing to adjacent towers, 2) Temporarily increasing bandwidth allocation. Now Congo Town tower shows similar patterns during 6-9 PM. What should we do?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Network Operations Supervisor managing our Greater Monrovia infrastructure (C). Act as a Senior Telecommunications Network Engineer with experience in high-density urban environments in Africa (R). Analyze (A) the attached 7-day traffic data from our Congo Town tower showing 85% capacity utilization during 6-9 PM and recommend a 3-phase optimization plan that doesn't require new equipment. Format your response as a detailed action plan (F) with: Current Situation Assessment, Immediate Actions (0-48 hours), Short-term Solutions (1-2 weeks), Long-term Recommendations, and Expected Performance Improvements. Write in technical but clear language for the technical team and management (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Investigating Intermittent Service Quality Issues",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Why is network quality poor?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Previously, intermittent quality was caused by: 1) Weather interference on microwave links, 2) Faulty antenna connections. Current issue: Random call drops in Paynesville during afternoons only. Investigation approach?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Network Quality Manager investigating service degradation (C). Take on the persona of a Telecommunications Troubleshooting Specialist with expertise in RF optimization (R). Develop (A) a systematic diagnostic protocol to identify the root cause of intermittent call drops occurring exclusively in the Paynesville area between 2-5 PM over the past 10 days. Create a step-by-step investigation checklist (F) organized by: Physical Infrastructure Checks, RF Parameter Analysis, Backhaul Verification, Interference Testing, and Equipment Health Status. Use clear, actionable language that field technicians can follow (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Human Resources": {
+                icon: "👔",
+                description: "Talent & retention management",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Reducing Employee Turnover in Call Center",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do we reduce turnover?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We reduced turnover last year by: 1) Introducing flexible shift bidding, 2) Monthly recognition programs. Despite this, night shift turnover remains 35%. What additional strategies should we try?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the HR Manager at Orange Telecom Liberia facing challenges with call center retention (C). Adopt the role of an HR Director specializing in contact center employee engagement in Africa (R). Design (A) a comprehensive retention strategy specifically targeting our night-shift customer service representatives (10 PM - 6 AM) who experience 35% annual turnover. Present your strategy as a structured implementation plan (F) with columns for: Initiative Name, Rationale, Target Impact, Implementation Steps, Timeline, Budget Estimate, and Success Metrics. The plan should be realistic for our Liberian context and considerate of local cultural factors (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Developing Performance Evaluation Criteria",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "What should be in a performance review?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Our current evaluations measure: 1) Attendance (20%), 2) Customer satisfaction scores (30%), 3) Sales targets (30%), 4) Team collaboration (20%). For technical staff, we need different metrics. Suggestions?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the HR Business Partner supporting the Network Operations Department (C). Act as an HR Performance Management Consultant with experience in technical teams within telecommunications (R). Create (A) a balanced performance evaluation framework for our network engineers and technicians that fairly assesses both technical competence and business impact. Deliver this as a comprehensive evaluation template (F) including: Technical Skills Assessment (with specific competencies), Problem-Solving Ability, Response Time Metrics, Documentation Quality, Safety Compliance, and Team Contribution. Ensure the criteria are measurable, fair, and aligned with telecom industry standards while being practical for quarterly reviews (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Sales & Marketing": {
+                icon: "📈",
+                description: "Revenue growth & campaigns",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Analyzing Declining Sales in Specific Region",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Why are sales down?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "In Q2, Gbarnga sales dropped 15%, which we addressed by: 1) Adding weekend promotions, 2) Training retailers. Sales recovered. Now Ganta shows 20% decline in Q3. What's the approach?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Regional Sales Manager for Nimba County (C). Assume the role of a Telecommunications Market Analyst with deep understanding of upcountry Liberian markets (R). Investigate (A) the potential causes of our 20% sales decline in Ganta over the past 3 months despite stable sales in surrounding areas, and develop a recovery action plan. Present your analysis as a strategic report (F) with sections for: Market Intelligence Summary, Competitive Analysis, Customer Feedback Insights, Root Cause Hypothesis, Recommended Actions (short-term and long-term), and Success Indicators. Use business language appropriate for senior management review (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Designing Promotion for New Data Bundle",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Create a promotion for our data bundles."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Our successful 'Night Data' campaign used: 1) Student ambassador program, 2) Social media challenges. Our new 'Weekend Family Bundle' targets families. How should we market it differently?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Marketing Manager launching our new Weekend Family Bundle product (C). Take on the role of a Creative Marketing Strategist specializing in telecommunications products for African family markets (R). Develop (A) a complete go-to-market campaign for this bundle that resonates with Liberian family values and weekend lifestyle patterns. Structure your campaign plan (F) as follows: Target Audience Profile, Key Messaging Pillars, Channel Strategy (traditional and digital), Partnership Opportunities, Launch Timeline, Budget Allocation, and Measurement Framework. Write in an energetic, creative style that inspires the marketing team while remaining practical and budget-conscious (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Finance": {
+                icon: "💰",
+                description: "Financial planning & analysis",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Forecasting Cash Flow for Network Expansion",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Help me with financial planning."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "For our last expansion (50 towers, $2M budget), we projected: Year 1: -$2M, Year 2: $400K revenue, Year 3: Break-even. New project: 30 fiber nodes, $1.5M. Build a forecast."
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Finance Manager preparing capital expenditure justification (C). Act as a Senior Financial Analyst specializing in telecommunications infrastructure investments in emerging markets (R). Build (A) a detailed 5-year financial projection model for our proposed fiber network expansion covering 15 neighborhoods in Monrovia with $1.5M initial investment. Create a comprehensive financial report (F) including: Initial Capital Requirements, Subscriber Acquisition Assumptions, Monthly Revenue Projections, Operating Cost Estimates, Cash Flow Statement (yearly), NPV Calculation, IRR, Payback Period, and Sensitivity Analysis. Use formal financial language suitable for Board presentation and include clear assumptions for all projections (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Managing Vendor Payment Disputes",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do I handle vendor issues?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Last month, a vendor disputed invoice timing claiming: 'Services delivered Week 1, invoice due Week 2.' We resolved by reviewing the contract delivery terms. Current dispute: Equipment vendor claiming payment due despite incomplete installation. Resolution steps?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Accounts Payable Supervisor managing vendor relationships (C). Assume the role of a Commercial Contracts Manager with expertise in telecom vendor agreements (R). Develop (A) a fair resolution framework for our current dispute with an equipment vendor who is demanding full payment ($200K) despite installation being only 70% complete according to our project manager's assessment. Create a negotiation strategy document (F) that includes: Dispute Summary, Contract Terms Review, Evidence Assessment, Proposed Resolution Options (from most to least favorable), Risk Analysis for each option, and Recommended Communication Approach. The tone should be diplomatic but firm, protecting Orange Telecom's interests while maintaining the vendor relationship (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Compliance & Legal": {
+                icon: "⚖️",
+                description: "Regulatory & legal affairs",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Ensuring New Service Launch Meets Regulatory Requirements",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "What are the compliance requirements?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "For mobile money launch, we ensured: 1) LTA license approval, 2) CBL money transfer authorization, 3) KYC procedures. For our new VAS (value-added services), what compliance steps are needed?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Compliance Officer overseeing new product launches (C). Act as a Telecommunications Regulatory Affairs Specialist with expertise in Liberian telecom law and LTA requirements (R). Develop (A) a complete compliance checklist and approval pathway for our planned launch of a new premium voice service (celebrity voice greetings) with monthly subscriptions. Structure this as a regulatory roadmap (F) with: Required Licenses/Approvals, Regulatory Body Contact Points, Submission Requirements, Expected Processing Timeline, Potential Compliance Risks, Mitigation Strategies, and Launch Readiness Criteria. Use precise legal language while remaining accessible to non-legal stakeholders in the product team (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Drafting Data Privacy Policy Update",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Write a privacy policy."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Our previous policy stated: 'We collect name and phone number for service delivery.' After GDPR review, we added: 'We retain data for 2 years and allow deletion requests.' Now with mobile money, we handle financial data. What updates are needed?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Data Protection Officer responsible for policy updates (C). Adopt the role of a Privacy Law Expert familiar with both international data protection standards and Liberian regulatory environment (R). Draft (A) comprehensive amendments to our existing customer data privacy policy that specifically addresses the collection, processing, storage, and sharing of financial transaction data through our mobile money platform. Present this as a formal policy document (F) with sections for: Data Categories and Collection Purpose, Legal Basis for Processing, Customer Rights, Data Retention Periods, Security Measures, Third-Party Sharing Protocols, and Breach Notification Procedures. Use formal legal language appropriate for regulatory submission while including plain-language summaries for customer-facing communication (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Administration": {
+                icon: "🏢",
+                description: "Operations & facility management",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Streamlining Procurement Process Delays",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How can we speed up procurement?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We reduced requisition delays by: 1) Implementing electronic approval routing, 2) Setting auto-escalation at 48 hours. Vendor delivery still takes 4-6 weeks for network equipment. How do we improve?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Administration Manager responsible for procurement efficiency (C). Take on the role of a Supply Chain Optimization Specialist with experience in telecommunications equipment procurement in West Africa (R). Analyze (A) our current procurement cycle for network equipment (currently averaging 5 weeks from requisition to delivery) and design an improved process that reduces timeline to 3 weeks maximum without compromising quality or compliance. Present your recommendations as a process improvement plan (F) with: Current Process Mapping, Bottleneck Identification, Proposed New Process Flow, Required System/Policy Changes, Implementation Roadmap, Expected Timeline Reduction, and Risk Management Measures. Write in clear business process language that operations staff and management can both understand (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Managing Office Space for Growing Team",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "We need more office space."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "When Sales expanded by 10 people, we: 1) Converted meeting room to workstations, 2) Implemented hot-desking for field staff. Customer Service is adding 15 agents. Space solutions?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Facilities Manager at our Monrovia headquarters (C). Act as a Workplace Strategy Consultant specializing in contact center environments (R). Develop (A) a space optimization plan to accommodate 15 additional customer service agents in our current facility without leasing additional space, while maintaining productivity and meeting labor law requirements for workspace standards. Create a detailed facility plan (F) including: Current Space Utilization Analysis, Proposed Layout Options (with pros/cons for each), Equipment and Furniture Requirements, Cost Estimates, Implementation Timeline, Impact on Current Teams, and Workspace Standards Compliance Verification. Use practical, solution-oriented language appropriate for executive approval and facility planning (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Quality Assurance": {
+                icon: "✓",
+                description: "Standards & excellence",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Improving Technical Training Program Effectiveness",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do we improve training?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We enhanced network training by: 1) Adding hands-on lab sessions, 2) Creating video tutorials. Despite this, new technicians still make configuration errors. What training gaps remain?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Quality Assurance Manager responsible for technical competency standards (C). Assume the role of a Telecommunications Training Development Expert with experience in building technical capacity in developing markets (R). Evaluate (A) our current 2-week network technician onboarding program and redesign it to reduce post-training configuration errors, which currently occur in 25% of new technician assignments during their first month. Structure your training program redesign (F) with: Skills Gap Analysis, Learning Objectives by Week, Training Delivery Methods, Hands-on Practice Scenarios, Competency Assessment Criteria, Post-Training Support Plan, and Success Metrics. Use educational language that is instructional and supportive for our training team (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Implementing Quality Standards for New Service",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "What quality standards should we use?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "For our mobile money launch, we set quality targets: 1) Transaction success rate >99%, 2) Customer complaint rate <2%. For our upcoming home fiber service, what standards apply?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Senior Quality Assurance Officer leading service excellence initiatives (C). Take on the persona of a Telecommunications Quality Management Specialist who has launched broadband services in multiple African markets (R). Define (A) comprehensive quality standards and KPIs for our new residential fiber internet service launching in 3 months, covering installation, service delivery, customer support, and technical performance. Present these standards as a Quality Framework Document (F) with sections for: Service Level Agreements (SLAs), Technical Performance Benchmarks, Installation Quality Standards, Customer Experience Metrics, Monitoring Procedures, Reporting Requirements, and Continuous Improvement Protocols. Write in a quality-focused, metrics-driven style appropriate for operational teams and management oversight (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Corporate Communications": {
+                icon: "📢",
+                description: "Internal & external messaging",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Organizing Company-Wide Town Hall Meeting",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Plan a company meeting."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Last town hall, we: 1) Had CEO address in auditorium, 2) Live-streamed to regional offices, 3) Q&A via text. For our end-of-year event with 500 staff, what improvements should we make?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Corporate Communications Manager planning our annual company gathering (C). Act as an Internal Communications Strategist with experience in large-scale employee engagement events in African corporate settings (R). Design (A) a comprehensive plan for our end-of-year town hall meeting that will engage 500 employees across our Monrovia headquarters and 8 upcountry locations, celebrating achievements while communicating 2026 strategic priorities. Create a complete event plan (F) including: Event Theme and Messaging, Agenda Timeline, Technology Requirements (hybrid delivery), Employee Engagement Activities, Content Development Needs, Logistics and Venue Setup, Communication Campaign (pre/during/post event), Budget Estimate, and Success Measures. Use energetic, inspiring language that reflects our company culture of excellence and innovation (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Managing Crisis Communication During Service Disruption",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do we communicate about an outage?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "During last major outage, we: 1) Sent SMS updates every 2 hours, 2) Posted on social media, 3) Issued press release. A ransomware attack has just affected our billing system. Communication strategy?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Head of Corporate Communications managing a critical incident (C). Assume the role of a Crisis Communications Specialist with expertise in telecommunications service disruptions and cyber incidents (R). Develop (A) an immediate crisis communication plan for the ransomware attack that has compromised our billing system, potentially affecting customer payment data. We need to inform customers, media, regulators, and staff while managing reputation and legal exposure. Structure this as a Crisis Communication Playbook (F) with: Situation Assessment, Key Messages for Each Stakeholder Group, Communication Channels and Timing, Spokesperson Guidelines, Holding Statements, FAQs, Media Response Protocol, Internal Staff Communication, and Recovery Messaging Plan. Use calm, authoritative language that demonstrates control and transparency while protecting the company legally (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Information Technology": {
+                icon: "💻",
+                description: "Systems & cybersecurity",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Evaluating IT System Upgrade vs. Replacement",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Should we upgrade or replace our system?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "For our CRM, we chose upgrade because: 1) Cost was 40% of replacement, 2) Staff already trained. Now our billing system is 8 years old, slow, and lacks mobile money integration. Upgrade or replace?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the IT Manager responsible for core system infrastructure (C). Act as an Enterprise IT Solutions Architect with experience in telecommunications billing and revenue management systems (R). Conduct (A) a thorough cost-benefit analysis comparing upgrading our 8-year-old billing system versus implementing a new cloud-based platform, considering our mobile money integration needs, 250,000 subscriber base, and 5-year technology roadmap. Present your analysis as an executive decision paper (F) with sections for: Current System Assessment, Option 1 (Upgrade) - Details/Costs/Timeline/Risks, Option 2 (Replace) - Details/Costs/Timeline/Risks, Total Cost of Ownership Comparison (5 years), Strategic Alignment Analysis, Risk Assessment, and Final Recommendation with Justification. Use technical but accessible language suitable for both IT and business executives (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Strengthening Cybersecurity After Phishing Incident",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do we improve security?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "After the phishing incident in March, we: 1) Implemented mandatory security training, 2) Deployed email filtering. Last week, 3 employees still clicked suspicious links. What additional measures are needed?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the IT Security Officer responsible for protecting company systems and data (C). Take on the role of a Cybersecurity Consultant specializing in telecommunications sector threats in Africa (R). Design (A) a multi-layered security enhancement program to address persistent phishing vulnerabilities and strengthen our overall security posture, given that employee awareness training alone has proven insufficient. Create a comprehensive Security Improvement Plan (F) organized by: Technical Controls (email security, endpoint protection, network monitoring), Administrative Controls (policies, procedures, access management), Training and Awareness Enhancements (beyond basic training), Incident Response Improvements, Third-party Risk Management, and Implementation Priority/Timeline. Use security-focused language that emphasizes both technical measures and human factors for review by IT leadership and executive management (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Revenue Assurance": {
+                icon: "💵",
+                description: "Fraud detection & revenue protection",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Detecting Revenue Leakage in Mobile Money",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Find where we're losing money."
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We found leakage in data bundle renewals (5% auto-renewal failures) by analyzing transaction logs. Mobile money commissions show 3% variance from projections. Investigate?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Revenue Assurance Analyst monitoring mobile money operations (C). Act as a Revenue Assurance Expert specializing in mobile financial services in emerging markets (R). Investigate (A) the 3% variance between projected and actual mobile money agent commission payments over Q3 2025, identify potential leakage points, and quantify financial impact. Present findings as a Revenue Leakage Analysis Report (F) with: Executive Summary of Findings, Data Analysis Methodology, Variance Breakdown by Transaction Type, Root Cause Analysis, Financial Impact Calculation, Leakage Points Identified, Recommended Controls, and Recovery Action Plan. Use analytical, data-driven language appropriate for finance and operations leadership (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Implementing Fraud Detection System",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "How do we detect fraud?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We detected SIM box fraud using: 1) Call pattern analysis, 2) Geographic anomaly flags. Now seeing unusual data usage patterns suggesting reselling. Detection approach?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Revenue Protection Manager focused on fraud prevention (C). Take on the persona of a Telecommunications Fraud Management Specialist with experience in African markets (R). Design (A) an automated fraud detection system specifically for identifying data bundle reselling operations, where subscribers purchase promotional bundles and resell data access to others. Create a Fraud Detection System Specification (F) including: Fraud Pattern Indicators, Data Sources for Monitoring, Detection Rules and Thresholds, Alert Generation Mechanism, Investigation Workflow, Legal and Regulatory Considerations, System Integration Requirements, and Expected ROI from Fraud Prevention. Use technical but clear language suitable for both IT implementation and business case approval (T)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Business Development": {
+                icon: "🚀",
+                description: "Partnerships & innovation",
+                scenarios: [
+                    {
+                        title: "SCENARIO 1: Evaluating Partnership with Local Business",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "Should we partner with this company?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "Our partnership with banks for mobile money worked because: 1) Complementary capabilities, 2) Large shared customer base. A retail chain proposes selling our data bundles. Evaluation criteria?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Business Development Manager evaluating strategic partnerships (C). Act as a Partnership Strategy Consultant with experience in telecommunications ecosystem development in Africa (R). Evaluate (A) the proposed partnership with a major Liberian retail chain (50 locations) to distribute our data bundles and potentially offer in-store top-up and bill payment services. Conduct a comprehensive partnership assessment as a Business Partnership Evaluation Report (F) with sections for: Strategic Fit Analysis, Market Opportunity Sizing, Revenue/Profit Projections, Operational Requirements, Risk Assessment, Partnership Structure Options, Financial Terms Recommendations, Implementation Roadmap, and Go/No-Go Recommendation. Use strategic business language appropriate for executive committee decision-making (T)."
+                            }
+                        ]
+                    },
+                    {
+                        title: "SCENARIO 2: Identifying New Revenue Streams",
+                        prompts: [
+                            {
+                                type: "lazy",
+                                label: "❌ Lazy/Simple Prompt",
+                                text: "What new products can we launch?"
+                            },
+                            {
+                                type: "few-shot",
+                                label: "🎯 Few-Shot Prompt",
+                                text: "We successfully launched: 1) Mobile money (now 30% of revenue), 2) Enterprise data solutions. Market research shows demand for streaming services. Feasibility?"
+                            },
+                            {
+                                type: "craft",
+                                label: "✅ CRAFT (Zero-Shot) Prompt",
+                                text: "I am the Head of Business Development driving innovation and growth (C). Assume the role of a Telecommunications Product Innovation Strategist with knowledge of African digital services markets (R). Explore (A) the feasibility and business case for launching a music/video streaming service tailored to Liberian youth market (18-30 years), either as a proprietary platform or through partnerships with existing services. Present your analysis as a New Product Feasibility Study (F) including: Market Size and Segmentation, Competitive Landscape, Customer Needs Assessment, Product Concept Options, Technical Requirements, Partnership Opportunities, Revenue Model Options, Financial Projections (3 years), Implementation Complexity, Risk Factors, and Strategic Recommendation. Write in an innovative, forward-thinking style while maintaining business rigor for senior management review (T)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Load departments into grid
+        function loadDepartments() {
+            const grid = document.getElementById('departmentGrid');
+            
+            for (const [deptName, deptData] of Object.entries(departmentData)) {
+                const card = document.createElement('div');
+                card.className = 'department-card';
+                card.innerHTML = `
+                    <h3>${deptData.icon} ${deptName}</h3>
+                    <p>${deptData.description}</p>
+                `;
+                card.onclick = () => showDepartmentPrompts(deptName);
+                grid.appendChild(card);
+            }
+        }
+
+        // Show department prompts in modal
+        function showDepartmentPrompts(deptName) {
+            const dept = departmentData[deptName];
+            const modal = document.getElementById('promptModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalTitle.textContent = `${dept.icon} ${deptName} - Prompt Examples`;
+
+            let html = '';
+            dept.scenarios.forEach(scenario => {
+                html += `<div class="scenario-section">`;
+                html += `<div class="scenario-title">${scenario.title}</div>`;
+                
+                scenario.prompts.forEach(prompt => {
+                    html += `
+                        <div class="prompt-example">
+                            <div class="prompt-type ${prompt.type}">${prompt.label}</div>
+                            <div class="prompt-text">${prompt.text}</div>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`;
+            });
+
+            modalBody.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        // Modal controls
+        const modal = document.getElementById('promptModal');
+        const closeBtn = document.querySelector('.close');
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDepartments();
+        });
+    </script>
+</body>
+</html>
